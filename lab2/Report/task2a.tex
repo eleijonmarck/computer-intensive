@@ -1,0 +1,11 @@
+% \section*{Parametric Bootstrap for the 100-year Atlantic wave}
+
+\subsection*{a)}
+We will here find the inverse of the atlantic wave distribution, approximated as a \textit{Gumpel Distribution}. To begin finding an inverse we insert a new variable for the function and solve for x. This is done below
+
+\[ F(x;\mu,\beta))=\exp\left(-\exp\left(-\frac{x-\mu}{\beta}\right)\right), x \in \mathbb{R} \]
+Here we insert $u$ for the function
+\begin{align*}
+&u = \exp \left \{ -\exp\left(-\frac{x-\mu}{\beta}\right)\right\} \Rightarrow \ln(u)=-\exp\left(-\frac{x-\mu}{\beta}\right) \Rightarrow \\
+& \ln\left\{\ln\left(\frac{1}{u}\right)\right\}=-\frac{x-\mu}{\beta} \Rightarrow \mu-\beta \ln \left \{\ln\left ( \frac{1}{u}\right ) \right \}=x.
+\end{align*}

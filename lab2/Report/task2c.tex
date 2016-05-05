@@ -1,0 +1,14 @@
+\subsection*{c)}
+
+For some datasets it is of interest to only calculate the upper/lower bound of the estimate. As for our case, one is not particularly interested in a significant wave-lengths lower bound, but rather the upper bound. Here we will provide a one-sided parametric bootstrapped 95\% confidence interval for the 100-year return value of the significant wave-height data provided. \\
+
+If we want to get the return value of the 100-year return value, we use the relation derived in the introduction above. To recall it is denoted by
+\[ F^{-1}(1-1/T;\mu,\beta), \quad T=3\cdot14\cdot100.\] \\
+
+If we want to get the return value of the 100-year return value, we use the relation derived in the introduction above. To recall it is denoted by
+\[ F^{-1}(1-1/T;\mu,\beta), \quad T=3\cdot14\cdot100.\]
+To get the return value we therefore use the relation for the inverse again in assignment \textbf{a)} by inserting $u=1-1/T$ and our estimated $\mu$ and $\beta$. Giving the return value as
+\[  \mu-\beta \ln \left \{\ln\left ( \frac{1}{u}\right ) \right \}=x,\quad x=16.5436\]
+
+This is however, only the maximum-value using our estimates and if we use the same arguments as before. Meaning, we calculate the maximum-value using the relation, but we here use the upper bounds for our estimate. This returns the value $x=17.3984$. As a result, our one-sided 95\% confidence bound of the 100-year return value for the wave-height is 
+\[ x_b=(16.5436,17.3984)\quad m \]

@@ -1,0 +1,39 @@
+For this exercise, we are supposed to find the marginal posteriors for $f(\theta| \boldsymbol{\tau}, \boldsymbol{t}, \boldsymbol{\lambda})$, $f(\boldsymbol{\lambda}|\theta,\boldsymbol{t},\boldsymbol{\tau})$ and $f(\boldsymbol{t}|\theta, \boldsymbol{\lambda},\boldsymbol{\tau})$. We began this exercise by identifying the different dependences , which are found in the following figure. 
+  \begin{center}
+      \tikz{ %
+        \node[latent] (tau) {$\tau$} ; %
+        \node[latent, left=of tau, yshift=0.5cm] (lambda) {$\lambda$} ; %
+        \node[latent, left=of tau, yshift=-0.5cm] (t) {$t$} ; %
+	\node[latent, left=of lambda, yshift = 0cm](theta){$\theta$};
+	\node[latent, left=of theta, yshift = 0cm](beta){$\beta$};
+	\edge{beta}{theta}
+        \edge{theta}{lambda}
+	\edge {lambda,t} {tau} ; %
+      }
+  \end{center}
+Now that we've identified all of the dependences, we begin by analyzing the first posterior.
+\begin{itemize}
+\item[I.] We begin by rewriting the expression using \textit{Bayes' Theorem}
+\[f(\theta| \boldsymbol{\tau}, \boldsymbol{t}, \boldsymbol{\lambda}) \propto f(\theta) \cdot f(\boldsymbol{\tau}, \boldsymbol{t}, \boldsymbol{\lambda}|\theta) \]
+The second term is rewritten as
+\[f(\boldsymbol{\tau}, \boldsymbol{t}, \boldsymbol{\lambda}|\theta) = f(\boldsymbol{\tau}|\boldsymbol{\lambda},\boldsymbol{t},\theta) \cdot f(\boldsymbol{t},\boldsymbol{\lambda}|\theta) \]
+We then notice that there's independence between some of the variables, which then means that the expression is rewritten into
+\[ f(\boldsymbol{\tau}|\boldsymbol{\lambda},\boldsymbol{t})\cdot f(\boldsymbol{t}) \cdot f(\boldsymbol{\lambda}|\theta) \propto f(\boldsymbol{\tau}|\boldsymbol{\lambda},\boldsymbol{t}) \cdot f(\boldsymbol{\lambda}|\theta) \]
+Inserting this expression then yields
+\[ f(\theta| \boldsymbol{\tau}, \boldsymbol{t}, \boldsymbol{\lambda}) \propto f(\theta) \cdot  f(\boldsymbol{\lambda}|\theta)  \cdot f(\boldsymbol{\tau}|\boldsymbol{\lambda},\boldsymbol{t})\]
+The explicit expression for the distribution then becomes
+\[ f(\theta | \boldsymbol{\lambda},\boldsymbol{t},\boldsymbol{\tau}) \propto \theta \cdot \exp\{-\beta\cdot\theta\}\cdot \theta^{2d}\prod^d_{i = 1}\lambda_i\cdot \exp \left \{ -\theta \sum^d_{i=1}\lambda_i \right \}\prod^d_{i=1}\lambda_i^{n_i(\boldsymbol{\tau})}\cdot \exp \left \{ - \sum^d_{i = 1}\lambda_i(t_{i+1} - t_i) \right \} \]
+We then identify the terms containing $\theta$ and finally get that
+\[f(\theta | \boldsymbol{\lambda},\boldsymbol{t},\boldsymbol{\tau}) \propto \theta^{2d + 1}\exp\left \{ -\theta \cdot \left ( \beta + \sum^d_{i = 1}\lambda_i \right) \right \} \sim \Gamma\left (2(d + 1), \beta + \sum^d_{i = 1}\lambda_i\right )\]
+\item[II.] For economy of text, the entire proof of the distribution will be left out, the procedure is the same as in I. 
+\[f(\boldsymbol{\lambda} | \boldsymbol{\tau},\boldsymbol{t}, \theta) \propto f(\boldsymbol{\tau} | \boldsymbol{t}, \boldsymbol{\lambda}) \cdot f(\boldsymbol{\lambda}|\theta) \cdot f(\theta) \]
+Whose explicit expression is
+\[f(\boldsymbol{\lambda} | \boldsymbol{\tau},\boldsymbol{t}, \theta) \propto \prod^d_{i=1}\lambda_i^{1 + n_i(\boldsymbol{\tau})}\cdot \exp\left \{ - \sum^d_{i = 1}(\theta + (t_{i+1} - t_i))\lambda_i \right \}  \]
+Which implies that 
+\[ \lambda_i \sim\Gamma \left ( 2 + n_i(\boldsymbol{\tau}), \theta + (t_{i+1} - t_i) \right ) \]
+\item[III.] We are now supposed to calculate the posterior for 
+\[f(\boldsymbol{t} | \boldsymbol{\tau},\boldsymbol{\lambda},\theta) \]
+If one proceeds as in the previous examples, we will see that we cannot determine the distribution of $\boldsymbol{t}$ explicitly. This then means that we need to use the Metropolis--Hastings algorithm in order to sample $\boldsymbol{t}$. If one proceeds as in the previous examples, we will get that 
+\[f(\boldsymbol{t} | \boldsymbol{\tau},\boldsymbol{\lambda},\theta) \propto \prod^d_{i = 1}(t_{i+1} - t_i)\lambda^{n_i(\boldsymbol{\tau})}\cdot\exp \left \{ -\sum^d_{i = 1}\lambda_i(t_{i+1} - t_i) \right \} \sim \frownie\]
+\end{itemize}
+

@@ -1,0 +1,126 @@
+\documentclass[11pt]{article}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{amssymb, amsmath}
+\usepackage{epstopdf}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amssymb}	
+\usepackage{float}
+\usepackage{leqno}
+\usepackage{wrapfig}
+\usepackage{mathrsfs}
+\usepackage{nomencl}
+\usepackage{fancyheadings}
+\usepackage{fancyhdr}
+\usepackage{import}
+\usepackage{tfrupee}
+\usepackage{hyperref}
+\usepackage[]{algorithm2e}
+\usepackage{bbm}
+\usepackage{courier}
+\usepackage{wasysym}
+\usepackage{tikz}
+\usetikzlibrary{bayesnet}
+%\usepackage{mcode}
+\newtheorem{mydef}{Definition}[section]
+\newtheorem{myprop}{Proposition}[section]
+\newtheorem{mytheorem}{Theorem}[section]
+% numbers on equations
+%\numberwithin{equation}{section}
+
+%\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+%\maketitle
+\title{Coal mine disasters - constructing a complex MCMC algorithm}
+\author{Eric Leijonmarck 870820-0095 \and Victor Tingstr\"{o}m 910101-0651}
+\date{19 March, 2014}
+
+
+\begin{document}
+\begin{titlepage}
+
+\begin{center}
+
+\includegraphics[scale=2]{kth}
+\\[\baselineskip]
+{\LARGE 
+SF2955, Home Assignment 2, Complex MCMC}
+
+\end{center}
+
+\begin{minipage}{0.5\textwidth}\begin{flushleft}
+\emph{Authors:}
+\end{flushleft}\end{minipage}
+\begin{minipage}{0.5\textwidth}\begin{flushleft} 
+\end{flushleft}\end{minipage}\\
+\begin{minipage}{0.5\textwidth}\begin{flushleft} 
+Eric \textsc{Leijonmarck}\\
+870820-0095\\
+\end{flushleft}\end{minipage}
+\begin{minipage}{0.5\textwidth}\begin{flushright} 
+\textit{ericle@kth.se}\\
+\end{flushright}\end{minipage}\\\\
+\begin{minipage}{0.5\textwidth}\begin{flushleft} 
+\end{flushleft}\end{minipage}\\
+\begin{minipage}{0.5\textwidth}\begin{flushleft} 
+Victor \textsc{Tingstr\"om}\\
+911109-0651\\
+\end{flushleft}\end{minipage}
+\begin{minipage}{0.5\textwidth}\begin{flushright} 
+\textit{vtin@kth.se}\\
+\end{flushright}\end{minipage}\\\\
+\begin{minipage}{0.5\textwidth}\begin{flushleft} 
+\emph{Supervisor:}\\
+\end{flushleft}\end{minipage}
+\begin{minipage}{0.5\textwidth}\begin{flushleft} 
+\end{flushleft}\end{minipage}\\
+\begin{minipage}{0.5\textwidth}\begin{flushleft} 
+Jimmy \textsc{Olsson}
+\end{flushleft}\end{minipage}
+\begin{minipage}{0.5\textwidth}\begin{flushright} 
+\textit{jimmyol@kth.se}
+\end{flushright}\end{minipage}
+\vfill
+\begin{center}
+{\large \today}
+\end{center}
+%Date of submission: September 28, 2012
+\end{titlepage}
+
+\section*{Coal mine disasters - Constructing a complex MCMC algorithm}
+
+\input{intro.tex}
+
+\subsection*{a)}
+
+\input{taska.tex}
+
+\input{task1b.tex}
+
+\input{task1c.tex}
+
+\input{task1d.tex}
+
+\input{task1e.tex}
+
+\newpage
+\section*{Parametric bootstrap method}
+\input{intro2.tex}
+
+\input{task2a.tex}
+
+\input{task2b.tex}
+
+\input{task2c.tex}
+
+\input{Appendix.tex}
+
+\end{document}
